@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Order Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #foodOrderForm {
+      max-width: 400px;
+      width: 100%;
+      background-color: #3498db; /* Updated color to blue */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #fff; /* Updated text color to white */
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #thankYouMessage {
+      display: none;
+      text-align: center;
+      color: #4caf50;
+      font-size: 20px;
+      margin-top: 20px; /* Added margin to separate from the form */
+      animation: zoomInOut 2s infinite alternate; /* Zoom in and out animation */
+    }
+
+    @keyframes zoomInOut {
+      0% {
+        transform: scale();
+      }
+      100% {
+        transform: scale(3.1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<form id="foodOrderForm" onsubmit="submitForm(); return false;">
+  <label for="foodName">Food Name:</label>
+  <input type="text" id="foodName" name="foodName" required>
+
+  <label for="quantity">Quantity:</label>
+  <input type="number" id="quantity" name="quantity" required>
+
+  <label for="address">Delivery Address:</label>
+  <input type="text" id="address" name="address" required>
+
+  <label for="mobileNumber">Mobile Number:</label>
+  <input type="tel" id="mobileNumber" name="mobileNumber" required pattern="[0-9]{10}">
+
+  <button type="submit">Place Order</button>
+</form>
+
+<div id="thankYouMessage">Thank you for ordering the food!</div>
+
+<script>
+  function submitForm() {
+    // You can add logic here to handle form submission, e.g., sending data to a server.
+    // For this example, we'll just show the thank you message.
+    document.getElementById('foodOrderForm').style.display = 'none';
+    document.getElementById('thankYouMessage').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
